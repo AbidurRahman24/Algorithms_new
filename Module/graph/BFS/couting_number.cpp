@@ -30,7 +30,7 @@ int main()
     {
         if(visited[i]) continue;
         dfs(i);
-        cout<<adj[i]<<" "<<endl;
+        // cout<<adj[i]<<" "<<endl;
         cnt++;
     }
     cout<<cnt<<endl;

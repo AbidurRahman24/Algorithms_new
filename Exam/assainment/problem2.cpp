@@ -21,7 +21,7 @@ int main()
         int mid = (l+r) /2;
         if(arr[mid] ==x)
         {
-            cout<<mid<<endl;
+            cout<<arr[mid]<<endl;
             flag= true;
             break;
         }

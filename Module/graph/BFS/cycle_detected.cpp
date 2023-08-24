@@ -11,7 +11,7 @@ bool dfs(int u, int p=-1)
     {
         if(v==p) continue;
         if(visited[v])return true;
-        cycleExist |= dfs(v,u);
+        cycleExist = cycleExist || dfs(v,u);
     }
     return cycleExist;
 }
@@ -30,16 +30,16 @@ int main()
     for(int i=1; i<=n; i++)
     {
         if(visited[i]) continue;
-        isCycle |=dfs(i);
+        isCycle = isCycle || dfs(i);
         
     }
     if(isCycle)
-        {
-            cout<<"cycle Detected";
-        }
-        else
-        {
-            cout<<"cycle not detected";
-        }
+    {
+        cout<<"cycle Detected";
+    }
+    else
+    {
+        cout<<"cycle not detected";
+    }
     return 0;
 }

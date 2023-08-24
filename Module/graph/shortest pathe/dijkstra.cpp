@@ -37,7 +37,7 @@ void dijkstra(int source)
 int main()
 {
     int n, m, w;
-    cin >> n >> m ;
+    cin >> n >> m;
     while (m--)
     {
         int u, v;

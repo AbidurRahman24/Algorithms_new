@@ -1,17 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef pair<int,int> pii;
-const int N = 1e3+10;
-int visited[N][N];
-int level[N][N];
-int n;
-vector<pii> direc = {{1,2},{1,-2},{-1,2},{-1,-2},{2,1},{2,-1},{-2,1},{-2,-1}};
 
-bool isValid(int i, int j) {
-    return (i >= 0 && i < 8 && j >= 0 && j < 8);
+vector<pii> direc = {{1,2},{1,-2},{-1,2},{-1,-2},{2,1},{2,-1},{-2,1},{-2,-1}};
+bool isValid(int i, int j, int N, int M) {
+    return (i >= 0 && i < N && j >= 0 && j < M);
 }
 
-void bfs(int si, int sj) {
+void bfs(int si, int sj, int di, int dj, int N, int M) {
+    vector<vector<int>> visited(N, vector<int>(M, 0));
+    vector<vector<int>> level(N, vector<int>(M, 0));
+
     queue<pii> q;
     q.push({si, sj});
     visited[si][sj] = true;
@@ -27,37 +26,29 @@ void bfs(int si, int sj) {
             int ni = i + d.first;
             int nj = j + d.second;
 
-            if (isValid(ni, nj) && !visited[ni][nj]) {
+            if (isValid(ni, nj, N, M) && !visited[ni][nj]) {
                 q.push({ni, nj});
                 visited[ni][nj] = true;
                 level[ni][nj] = level[i][j] + 1;
             }
         }
     }
-}
 
-void reset_level_vis() {
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            level[i][j] = 0;
-            visited[i][j] = false;
-        }
+    if (visited[di][dj]) {
+        cout << level[di][dj] << endl;
+    } else {
+        cout << -1 << endl;
     }
 }
 
 int main() {
-    cin >> n;
+    int T;
+    cin >> T;
 
-    while (n--) {
-        int di, dj, si, sj;
-        cin >> di >> dj >> si >> sj;
-        bfs(si - 1, sj - 1); 
-        if (visited[di - 1][dj - 1]) {
-            cout << level[di - 1][dj - 1] << endl;
-        } else {
-            cout << -1 << endl;
-        }
-        reset_level_vis();
+    while (T--) {
+        int N, M, si, sj, di, dj;
+        cin >> N >> M >> si >> sj >> di >> dj;
+        bfs(si, sj, di, dj, N, M);
     }
 
     return 0;

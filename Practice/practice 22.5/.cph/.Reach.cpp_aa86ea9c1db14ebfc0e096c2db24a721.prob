@@ -1,0 +1,1 @@
+{"name":"Local: Reach","url":"e:\\phitron\\c programming\\Algorithms\\Practice\\practice 22.5\\Reach.cpp","tests":[{"id":1694201254557,"input":"5\n1\n2\n10\n25\n200","output":"YES\nNO\nYES\nNO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\phitron\\c programming\\Algorithms\\Practice\\practice 22.5\\Reach.cpp","group":"local","local":true}

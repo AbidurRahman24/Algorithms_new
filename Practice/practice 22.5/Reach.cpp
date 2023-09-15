@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
-long long dp[105];
+const int N = 1e5 + 5;
+long long dp[N];
 bool reach(long long s, long long n)
 {
-    if (s == n) {
-        return true;
-    }
     
-    if (s > n) {
-        return false;
+    if(s >= n)
+    {
+        if(s == n) return true;
+        else return false;
     }
     if(dp[s] != -1)
     {
